@@ -1,16 +1,13 @@
 'use script';
 
-const divEl = document.querySelectorAll('.divBox');
-divEl.forEach((i) => i.addEventListener('click', changeColor1));
+let counter = 0;
 
-function changeColor1(event) {
-  this.style.backgroundColor = 'darkblue';
-  this.removeEventListener('click', changeColor1);
-  this.addEventListener('click', changeColor2);
-}
+let counterButEl = document.getElementById('counterBut');
+let counterValEl = document.getElementById('counterVal');
 
-function changeColor2(event) {
-  this.style.backgroundColor = 'orangered';
-  this.removeEventListener('click', changeColor2);
-  this.addEventListener('click', changeColor1);
-}
+counterValEl.innerText = counter;
+
+counterButEl.onclick = function () {
+  counter++;
+  counterValEl.innerText = counter;
+};
