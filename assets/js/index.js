@@ -1,10 +1,16 @@
-/*
-let elem = document.getElementById('id1');
+'use script';
 
-function fun1() {
-  alert('hello');
+const divEl = document.querySelectorAll('.divBox');
+divEl.forEach((i) => i.addEventListener('click', changeColor1));
+
+function changeColor1(event) {
+  this.style.backgroundColor = 'darkblue';
+  this.removeEventListener('click', changeColor1);
+  this.addEventListener('click', changeColor2);
 }
-//elem.onclick = () => alert('hello');
 
-elem.addEventListener('click', fun1);
-*/
+function changeColor2(event) {
+  this.style.backgroundColor = 'orangered';
+  this.removeEventListener('click', changeColor2);
+  this.addEventListener('click', changeColor1);
+}
