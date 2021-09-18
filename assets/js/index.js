@@ -19,31 +19,38 @@ const users = [
   },
 ];
 
-// функция для одного пользователя для 1 карточки
-function createUserListItemElem(user) {
-  //li
-  const userListItemElem = document.createElement('li');
-  //контейнер для карточки
-  const userCardWrapperElem = document.createElement('div');
-  userCardWrapperElem.classList.add('userCardWrapper');
-  // контейнер для изображение
+function createUserFullName({ name, surname }) {
+  const userFullNameElem = document.createElement('h2');
+  userFullNameElem.innerText = `${name} ${surname}`;
+  return userFullNameElem;
+}
+
+function createUserImage({ imageSrc }) {
   const userImgContElem = document.createElement('div');
   userImgContElem.classList.add('userImgContainer');
-  //img
   const userImageElem = document.createElement('img');
   userImageElem.classList.add('userImage');
   userImageElem.setAttribute('src', user.imageSrc);
   userImageElem.setAttribute('alt', 'userphoto');
-  //соединить
   userImgContElem.append(userImageElem);
-  userCardWrapperElem.append(userImgContElem);
-  //fullname
-  const userFullNameElem = document.createElement('h2');
-  userFullNameElem.innerText = `${user.name} ${user.surname}`;
-  userCardWrapperElem.append(userFullNameElem);
+  return userImgContElem;
+}
 
-  //собираем в карточку все
-  userListItemElem.append(userCardWrapperElem);
+// функция для одного пользователя для 1 карточки
+function createUserCard(user) {
+  const userCardWrapperElem = document.createElement('div');
+  userCardWrapperElem.classList.add('userCardWrapper');
+  userCardWrapperElem.append(createUserImage(user));
+  userCardWrapperElem.append(createUserFullName(user));
+  return userCardWrapperElem;
+}
+
+// функция для одного пользователя для 1 карточки LI
+function createUserListItemElem(user) {
+  //li
+  const userListItemElem = document.createElement('li');
+  userListItemElem.append(createUserCard(user));
+  // <li id=1></li>
   userListItemElem.setAttribute('id', user.id);
   return userListItemElem;
 }
