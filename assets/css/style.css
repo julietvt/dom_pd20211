@@ -1,0 +1,25 @@
+.userCardWrapper {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  border: 2px solid green;
+}
+
+.userImgContainer {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+}
+
+.userImage {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  position: absolute;
+}
+
+#userList {
+  margin: 0 auto;
+  background-color: gray;
+}
