@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
   margin: 0;
@@ -7,30 +9,86 @@ body {
   background: black;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  position: relative;
 }
 
-.card {
+.container .card {
+  position: relative;
+  cursor: pointer;
+}
+
+.container .card .partStyle {
   width: 300px;
-  height: 300px;
+  height: 200px;
+  transition: 1s;
+}
+
+.container .card .partStyle.part1 {
   background: gray;
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  transform: translateY(100px);
 }
 
-.card img{
-    max-width: 100px;
+.container .card:hover .partStyle.part1 {
+  background: mediumvioletred;
+  transform: translateY(0);
 }
 
-.part2 a{
-    margin: 10px 0 0;
-    display: inline-block;
-    padding: 5px;
-    border: 1px solid black;
-    text-decoration: none;
-    font-weight: bold;
+.container .card:hover .partStyle.part1 .content {
+  opacity: 1;
+}
+
+.container .card .partStyle.part1 .content {
+  opacity: 0;
+  transition: 1s;
+}
+
+.container .card .partStyle.part1 .content img {
+  max-width: 100px;
+}
+
+.container .card .partStyle.part1 .content h2 {
+  padding: 0;
+  margin: 10px;
+  color: white;
+  text-align: center;
+}
+
+.container .card .partStyle.part2 {
+  position: relative;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 30px 50px black;
+  transform: translateY(-100px);
+}
+
+.container .card:hover .partStyle.part2 {
+  transform: translateY(0);
+}
+
+.container .card .partStyle.part2 .content a {
+  margin: 10px 0 0;
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container .card .partStyle.part2 .content a:hover {
+  background-color: black;
+  color: white;
+}
