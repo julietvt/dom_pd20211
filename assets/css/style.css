@@ -23,4 +23,9 @@ body {
   margin: 2px;
   background-color: gray;
   box-shadow: 0 0 2px black;
+  transition: 2s ease;
+}
+
+.square:hover {
+  transition-duration: 0;
 }
